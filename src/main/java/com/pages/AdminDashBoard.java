@@ -179,16 +179,35 @@ public class AdminDashBoard extends javax.swing.JFrame {
 
             @Override
             public void onDelete(int row) {
-                if (InventoryTable.isEditing()) {
-                    InventoryTable.getCellEditor().stopCellEditing();
+               if (InventoryTable.isEditing()) {
+    InventoryTable.getCellEditor().stopCellEditing();
+}
 
-                }
-                int selectedRow = InventoryTable.getSelectedRow();
-                int id = (int) InventoryTable.getValueAt(selectedRow, 0);
-                // 0 is the column index of the ID column
+int selectedRow = InventoryTable.getSelectedRow();
+if (selectedRow == -1) {
+    JOptionPane.showMessageDialog(null, "Please select an inventory item to delete.", "No Selection", JOptionPane.WARNING_MESSAGE);
+    return;
+}
 
-                InventorytblHandler.deleteInventoryRow(id);
-                InventorytblHandler.InventoryShowTable(InventoryTable);
+int id = (int) InventoryTable.getValueAt(selectedRow, 0); // 0 is the column index of the ID column
+
+// Show confirmation dialog
+int choice = JOptionPane.showConfirmDialog(
+        null,
+        "Do you want to delete this inventory item?",
+        "Confirm Deletion",
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.QUESTION_MESSAGE
+);
+
+if (choice == JOptionPane.YES_OPTION) {
+    InventorytblHandler.deleteInventoryRow(id);
+    InventorytblHandler.InventoryShowTable(InventoryTable);
+    JOptionPane.showMessageDialog(null, "Inventory item deleted successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+} else {
+    JOptionPane.showMessageDialog(null, "Deletion cancelled.", "Cancelled", JOptionPane.INFORMATION_MESSAGE);
+}
+
             }
         };
 
@@ -224,14 +243,34 @@ public class AdminDashBoard extends javax.swing.JFrame {
 
             @Override
             public void onDelete(int row) {
-                if (StudentsTable.isEditing()) {
-                    StudentsTable.getCellEditor().stopCellEditing();
-                }
-                int selectedRow = StudentsTable.getSelectedRow();
-                int id = (int) StudentsTable.getValueAt(selectedRow, 0);
+               if (StudentsTable.isEditing()) {
+    StudentsTable.getCellEditor().stopCellEditing();
+}
 
-                StudentstblHandler.deleteStudent(id);
-                StudentstblHandler.showStudentsTable(StudentsTable);
+int selectedRow = StudentsTable.getSelectedRow();
+if (selectedRow == -1) {
+    JOptionPane.showMessageDialog(null, "Please select a student to delete.", "No Selection", JOptionPane.WARNING_MESSAGE);
+    return;
+}
+
+int id = (int) StudentsTable.getValueAt(selectedRow, 0);
+
+// Show confirmation dialog
+int choice = JOptionPane.showConfirmDialog(
+        null,
+        "Do you want to delete this student?",
+        "Confirm Deletion",
+        JOptionPane.YES_NO_OPTION,
+        JOptionPane.QUESTION_MESSAGE
+);
+
+if (choice == JOptionPane.YES_OPTION) {
+    StudentstblHandler.deleteStudent(id);
+    StudentstblHandler.showStudentsTable(StudentsTable);
+    JOptionPane.showMessageDialog(null, "Student deleted successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+} else {
+    JOptionPane.showMessageDialog(null, "Deletion cancelled.", "Cancelled", JOptionPane.INFORMATION_MESSAGE);
+}
 
             }
         };
@@ -2521,6 +2560,11 @@ public class AdminDashBoard extends javax.swing.JFrame {
                 studentssearchtfActionPerformed(evt);
             }
         });
+        studentssearchtf.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                studentssearchtfKeyTyped(evt);
+            }
+        });
         jPanel5.add(studentssearchtf, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, 200, 40));
 
         jLabel8.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
@@ -3660,6 +3704,10 @@ AddInventory.setVisible(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel19MouseClicked
 
+    private void studentssearchtfKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_studentssearchtfKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_studentssearchtfKeyTyped
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -3727,16 +3775,22 @@ public void exportJTableToExcel(JTable Jtable, String filePath) throws IOExcepti
         HSSFRow row = sheet.createRow(i);
         for (int j = 0; j < cols; j++) {
             HSSFCell cell = row.createCell(j);
-            cell.setCellValue(model.getValueAt(i - 1, j).toString());
+            Object value = model.getValueAt(i - 1, j); // Get the cell value
+            // Check for null and set the value
+            cell.setCellValue(value != null ? value.toString() : "");
         }
     }
 
     // Save the Excel file
     File file = new File(filePath);
-    FileOutputStream fileOut = new FileOutputStream(file);
-    workbook.write(fileOut);
-    fileOut.close();
+    try (FileOutputStream fileOut = new FileOutputStream(file)) {
+        workbook.write(fileOut);
+    }
+
+    workbook.close(); // Close the workbook
+    System.out.println("Data exported successfully to " + file.getAbsolutePath());
 }
+
 
 
 
