@@ -563,6 +563,25 @@ if (choice == JOptionPane.YES_OPTION) {
         cancelupdateinventory6 = new javax.swing.JLabel();
         jPanel19 = new javax.swing.JPanel();
         saveupdateinventory6 = new javax.swing.JLabel();
+        AddAdmin = new javax.swing.JDialog();
+        left7 = new com.CustomPanel.menuPanel();
+        updateinventory7 = new javax.swing.JLabel();
+        lastnameadmin = new javax.swing.JTextField();
+        equipment10 = new javax.swing.JLabel();
+        categoryequipment8 = new javax.swing.JLabel();
+        quantityequipment6 = new javax.swing.JLabel();
+        jPanel20 = new javax.swing.JPanel();
+        cancelupdateinventory7 = new javax.swing.JLabel();
+        jPanel21 = new javax.swing.JPanel();
+        saveupdateinventory7 = new javax.swing.JLabel();
+        equipment11 = new javax.swing.JLabel();
+        equipmentid5 = new javax.swing.JLabel();
+        firstnameAdmin = new javax.swing.JTextField();
+        emailtfadmin = new javax.swing.JTextField();
+        passwordAdmin = new javax.swing.JPasswordField();
+        ConfirmPAsswordAdmin = new javax.swing.JPasswordField();
+        showPasswordCheckbox = new javax.swing.JCheckBox();
+        confirmpassword = new javax.swing.JCheckBox();
         jPanel2 = new com.CustomPanel.menuPanel();
         scilab = new javax.swing.JLabel();
         dashboardbtn = new javax.swing.JPanel();
@@ -610,7 +629,6 @@ if (choice == JOptionPane.YES_OPTION) {
         AddBtn = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
         jScrollPane9 = new javax.swing.JScrollPane();
         InventoryTable = new javax.swing.JTable();
         studentspanel = new javax.swing.JPanel();
@@ -631,6 +649,7 @@ if (choice == JOptionPane.YES_OPTION) {
         cardForm1 = new com.CustomCards.CardForm();
         jScrollPane1 = new javax.swing.JScrollPane();
         notiicationTable = new javax.swing.JTable();
+        AddAdminbtn = new javax.swing.JLabel();
 
         left.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -1906,6 +1925,146 @@ if (choice == JOptionPane.YES_OPTION) {
             .addComponent(left6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        left7.setBackground(new java.awt.Color(51, 51, 51));
+        left7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        updateinventory7.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        updateinventory7.setForeground(new java.awt.Color(255, 255, 255));
+        updateinventory7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/attendance.png"))); // NOI18N
+        updateinventory7.setText("Add Admin");
+        left7.add(updateinventory7, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 39, -1, -1));
+
+        lastnameadmin.setBackground(new java.awt.Color(255, 255, 255));
+        lastnameadmin.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        lastnameadmin.setForeground(new java.awt.Color(0, 0, 0));
+        lastnameadmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lastnameadminActionPerformed(evt);
+            }
+        });
+        left7.add(lastnameadmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 263, 40));
+
+        equipment10.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        equipment10.setForeground(new java.awt.Color(255, 255, 255));
+        equipment10.setText("LASTNAME");
+        left7.add(equipment10, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 117, -1, -1));
+
+        categoryequipment8.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        categoryequipment8.setForeground(new java.awt.Color(255, 255, 255));
+        categoryequipment8.setText("FIRSTNAME");
+        left7.add(categoryequipment8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 111, -1, -1));
+
+        quantityequipment6.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        quantityequipment6.setForeground(new java.awt.Color(255, 255, 255));
+        quantityequipment6.setText("Confirm Password");
+        left7.add(quantityequipment6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 291, -1, -1));
+
+        jPanel20.setBackground(new java.awt.Color(118, 44, 235));
+
+        cancelupdateinventory7.setFont(new java.awt.Font("Poppins", 1, 16)); // NOI18N
+        cancelupdateinventory7.setForeground(new java.awt.Color(255, 255, 255));
+        cancelupdateinventory7.setText("CANCEL");
+
+        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
+        jPanel20.setLayout(jPanel20Layout);
+        jPanel20Layout.setHorizontalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel20Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(cancelupdateinventory7, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel20Layout.setVerticalGroup(
+            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel20Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cancelupdateinventory7)
+                .addContainerGap())
+        );
+
+        left7.add(jPanel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 420, -1, -1));
+
+        jPanel21.setBackground(new java.awt.Color(118, 44, 235));
+        jPanel21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel21MouseClicked(evt);
+            }
+        });
+
+        saveupdateinventory7.setFont(new java.awt.Font("Poppins", 1, 16)); // NOI18N
+        saveupdateinventory7.setForeground(new java.awt.Color(255, 255, 255));
+        saveupdateinventory7.setText("SAVE");
+
+        javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
+        jPanel21.setLayout(jPanel21Layout);
+        jPanel21Layout.setHorizontalGroup(
+            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel21Layout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(saveupdateinventory7)
+                .addContainerGap(50, Short.MAX_VALUE))
+        );
+        jPanel21Layout.setVerticalGroup(
+            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel21Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(saveupdateinventory7)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        left7.add(jPanel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 420, -1, -1));
+
+        equipment11.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        equipment11.setForeground(new java.awt.Color(255, 255, 255));
+        equipment11.setText("Password");
+        left7.add(equipment11, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, -1, -1));
+
+        equipmentid5.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        equipmentid5.setForeground(new java.awt.Color(255, 255, 255));
+        equipmentid5.setText("EMAIL");
+        left7.add(equipmentid5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 197, -1, -1));
+
+        firstnameAdmin.setBackground(new java.awt.Color(255, 255, 255));
+        firstnameAdmin.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        firstnameAdmin.setForeground(new java.awt.Color(0, 0, 0));
+        firstnameAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                firstnameAdminActionPerformed(evt);
+            }
+        });
+        left7.add(firstnameAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 139, 263, 40));
+
+        emailtfadmin.setBackground(new java.awt.Color(255, 255, 255));
+        emailtfadmin.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        emailtfadmin.setForeground(new java.awt.Color(0, 0, 0));
+        emailtfadmin.setText("   ");
+        emailtfadmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailtfadminActionPerformed(evt);
+            }
+        });
+        left7.add(emailtfadmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 225, 266, 40));
+        left7.add(passwordAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 260, 40));
+        left7.add(ConfirmPAsswordAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 260, 40));
+
+        showPasswordCheckbox.setText("Show paswword");
+        showPasswordCheckbox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showPasswordCheckboxActionPerformed(evt);
+            }
+        });
+        left7.add(showPasswordCheckbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, -1, -1));
+
+        confirmpassword.setText("Show password");
+        confirmpassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmpasswordActionPerformed(evt);
+            }
+        });
+        left7.add(confirmpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, -1));
+
+        AddAdmin.getContentPane().add(left7, java.awt.BorderLayout.CENTER);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         setResizable(false);
@@ -2443,14 +2602,6 @@ if (choice == JOptionPane.YES_OPTION) {
         });
         jPanel4.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 580, 96, 39));
 
-        jButton7.setText("ADD MULTIPLE INVENTRY");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 25, 180, 30));
-
         InventoryTable.setAutoCreateRowSorter(true);
         InventoryTable.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         InventoryTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -2684,6 +2835,15 @@ if (choice == JOptionPane.YES_OPTION) {
         notiicationTable.setRowHeight(35);
         jScrollPane1.setViewportView(notiicationTable);
 
+        AddAdminbtn.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        AddAdminbtn.setForeground(new java.awt.Color(0, 0, 0));
+        AddAdminbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/add.png"))); // NOI18N
+        AddAdminbtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AddAdminbtnMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout dashboardpanelLayout = new javax.swing.GroupLayout(dashboardpanel);
         dashboardpanel.setLayout(dashboardpanelLayout);
         dashboardpanelLayout.setHorizontalGroup(
@@ -2699,6 +2859,9 @@ if (choice == JOptionPane.YES_OPTION) {
                     .addGroup(dashboardpanelLayout.createSequentialGroup()
                         .addGap(79, 79, 79)
                         .addGroup(dashboardpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(dashboardpanelLayout.createSequentialGroup()
+                                .addComponent(AddAdminbtn)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(cardForm1, javax.swing.GroupLayout.DEFAULT_SIZE, 833, Short.MAX_VALUE)
                             .addComponent(jScrollPane1))))
                 .addGap(35, 35, 35))
@@ -2712,8 +2875,10 @@ if (choice == JOptionPane.YES_OPTION) {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cardForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(AddAdminbtn)
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -3420,6 +3585,7 @@ AddInventory.setVisible(false);
     } else {
         JOptionPane.showMessageDialog(null, "Account created successfully.");
          AddStudents.setVisible(false); 
+          StudentstblHandler.showStudentsTable(StudentsTable);
     }
         
         
@@ -3695,11 +3861,6 @@ AddInventory.setVisible(false);
         generateStudentListDocument(StudentsTable);
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jButton7ActionPerformed
-
     private void jPanel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel19MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel19MouseClicked
@@ -3707,6 +3868,113 @@ AddInventory.setVisible(false);
     private void studentssearchtfKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_studentssearchtfKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_studentssearchtfKeyTyped
+
+    private void AddAdminbtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddAdminbtnMouseClicked
+        // TODO add your handling code here:
+         AddAdmin.pack();
+        AddAdmin.setLocationRelativeTo(dashboardpanel);
+        AddAdmin.setVisible(true);
+    }//GEN-LAST:event_AddAdminbtnMouseClicked
+
+    private void lastnameadminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastnameadminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lastnameadminActionPerformed
+
+    private void jPanel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel21MouseClicked
+        // TODO add your handling code here:
+         
+        String fname = firstnameAdmin.getText().toLowerCase();
+        String uname = lastnameadmin.getText().toLowerCase();
+        String email = emailtfadmin.getText();
+        String password = String.valueOf(passwordAdmin.getPassword());
+        String confirmPass = String.valueOf(ConfirmPAsswordAdmin.getPassword());
+        String status = "Active";
+        
+        String qr_code = "ewewewew";
+        
+        // Condition when the user click the submit without providing an input
+        if (fname.equals("") || uname.equals("") || email.equals("") || password.equals("") || confirmPass.equals("")){
+            JOptionPane.showMessageDialog(null, "Please provide an input.");
+            return;
+        }
+         if((email.contains("..")) || (password.contains(".."))){
+                JOptionPane.showMessageDialog(null, "Input not acceptable.");
+                return;
+            }
+           // Email validation
+        if (!isValidEmail(email)) {
+            JOptionPane.showMessageDialog(null, "Invalid email format.");
+            return;
+        }
+            if((email.contains(" ")) || (password.contains(" "))){
+                JOptionPane.showMessageDialog(null, "Invalid Sign up. Username, Password can't contains white space");
+                return;
+            }
+            if(password.length() < 8){
+                    
+                    JOptionPane.showMessageDialog(null, "Password must be atleast 8 character");
+                    return;
+                }
+            if (!fname.matches("^[a-zA-Z\\s]+$")) {
+                JOptionPane.showMessageDialog(null, "Firstname Must Not Have A Number Or Special Characters");
+                return;
+            }
+            if (!NetworkUtil.isInternetAvailable1()) {
+       JOptionPane.showMessageDialog(null, "No internet connection. Please connect to the internet to register.");
+        return;
+            }
+            if (!uname.matches("^[a-zA-Z\\s]+$")) {
+                JOptionPane.showMessageDialog(null, "Lastname Must Not Have A Number Or Special Characters");
+                return;
+            }
+            if (password.equals(confirmPass)) {
+            boolean isExist = UserHandler.registerUserAdmin(uname, fname, email, status, password, qr_code );
+                    dispose();
+                    
+            if (isExist) {
+                JOptionPane.showMessageDialog(null, "Data Exists Already");
+            } else {
+                JOptionPane.showMessageDialog(null, "Account created Successfully.");
+               
+               
+
+           
+            }
+            
+            }
+    }//GEN-LAST:event_jPanel21MouseClicked
+
+    private void firstnameAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstnameAdminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_firstnameAdminActionPerformed
+
+    private void emailtfadminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailtfadminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailtfadminActionPerformed
+
+    private void showPasswordCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showPasswordCheckboxActionPerformed
+        // TODO add your handling code here:
+        if (showPasswordCheckbox.isSelected()) {
+                    // Show password
+                    passwordAdmin.setEchoChar((char) 0);
+                } else {
+                    // Hide password
+                    passwordAdmin.setEchoChar('*'); // Default echo char
+                }
+    }//GEN-LAST:event_showPasswordCheckboxActionPerformed
+
+    private void confirmpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmpasswordActionPerformed
+        // TODO add your handling code here:
+        
+         if (confirmpassword.isSelected()) {
+                    // Show password
+                    ConfirmPAsswordAdmin.setEchoChar((char) 0);
+                } else {
+                    // Hide password
+                    ConfirmPAsswordAdmin.setEchoChar('*'); // Default echo char
+                }
+        
+    }//GEN-LAST:event_confirmpasswordActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -3790,10 +4058,7 @@ public void exportJTableToExcel(JTable Jtable, String filePath) throws IOExcepti
     workbook.close(); // Close the workbook
     System.out.println("Data exported successfully to " + file.getAbsolutePath());
 }
-
-
-
-
+ 
 public void generateWordDocument(JTable table) {
     XWPFDocument document = new XWPFDocument();
 
@@ -3803,7 +4068,26 @@ public void generateWordDocument(JTable table) {
             throw new NullPointerException("Table model is null or contains no data");
         }
 
+        int itemsPerPage = 9; // 3x3 grid per table
+        int currentItem = 0;
+
+        XWPFTable wordTable = null;
+
         for (int i = 0; i < model.getRowCount(); i++) {
+            // Create a new 3x3 table if this is the first item or after every 9 items
+            if (currentItem % itemsPerPage == 0) {
+                wordTable = document.createTable();
+                wordTable.removeRow(0); // Remove the default empty row
+
+                // Initialize a 3x3 grid
+                for (int row = 0; row < 3; row++) {
+                    XWPFTableRow tableRow = wordTable.createRow();
+                    for (int col = 0; col < 3; col++) {
+                        tableRow.addNewTableCell(); // Ensure 3 cells per row
+                    }
+                }
+            }
+
             String itemId = model.getValueAt(i, 0).toString(); // Assuming the ID is in column 0
 
             String query = "SELECT equipment_name, qr_path FROM inventorytable WHERE id = ?";
@@ -3811,31 +4095,40 @@ public void generateWordDocument(JTable table) {
             try (Connection conn = DatabaseConnector.getConnection();
                  PreparedStatement pstmt = conn.prepareStatement(query)) {
 
-                pstmt.setInt(1, Integer.parseInt(itemId));  // Convert itemId to integer
+                pstmt.setInt(1, Integer.parseInt(itemId)); // Convert itemId to integer
                 try (ResultSet rs = pstmt.executeQuery()) {
 
                     if (rs.next()) {
                         String equipmentName = rs.getString("equipment_name");
-                        String qr_path = rs.getString("qr_path");
+                        String qrPath = rs.getString("qr_path");
 
                         // Ensure the image file path is valid and file exists
-                        File imageFile = new File(qr_path);
+                        File imageFile = new File(qrPath);
                         if (!imageFile.exists()) {
-                            JOptionPane.showMessageDialog(null, "Image file not found: " + qr_path);
+                            JOptionPane.showMessageDialog(null, "Image file not found: " + qrPath);
                             continue; // Skip this entry if the image does not exist
                         }
 
-                        // Add equipment name and image to the document, keeping them close
-                        XWPFParagraph paragraph = document.createParagraph();
-                        XWPFRun run = paragraph.createRun();
-                        run.setText("Equipment Name: " + equipmentName);
-                        run.addBreak();
+                        int row = (currentItem % itemsPerPage) / 3; // Determine the row index (0-2)
+                        int col = (currentItem % itemsPerPage) % 3; // Determine the column index (0-2)
 
-                        // Add picture to the document with 2x2 inch dimensions (144x144 pixels)
-                        addPictureToRun(document, run, qr_path, 144, 144);  // 2x2 inch image size
+                        XWPFTableRow tableRow = wordTable.getRow(row);
+                        XWPFTableCell cell = tableRow.getCell(col);
+
+                        // Add QR code and equipment name in the same cell
+                        XWPFParagraph paragraph = cell.addParagraph();
+                        XWPFRun run = paragraph.createRun();
+
+                        // Add QR code (image) first
+                        addPictureToRun(document, run, qrPath, 144, 144); // 2x2 inch image
+                        run.addBreak(); // Add a line break
+
+                        // Add equipment name below the QR code
+                        run.setText(equipmentName);
                     }
                 }
             }
+            currentItem++;
         }
 
         // Open JFileChooser to let the user choose the file path and name
@@ -3863,6 +4156,9 @@ public void generateWordDocument(JTable table) {
     }
 }
 
+
+
+
 private void addPictureToRun(XWPFDocument document, XWPFRun run, String qr_path, int width, int height) {
     File imageFile = new File(qr_path);
     if (!imageFile.exists()) {
@@ -3887,6 +4183,14 @@ public void generateStudentListDocument(JTable table) {
             throw new NullPointerException("Table model is null or contains no data");
         }
 
+        // Define rows and columns for the 3x3 grid
+        final int rowsPerPage = 3;
+        final int colsPerPage = 3;
+
+        XWPFTable tableDoc = document.createTable(rowsPerPage, colsPerPage);
+        tableDoc.setWidth("100%"); // Set table width to 100% of page
+
+        int studentIndex = 0;
         for (int i = 0; i < model.getRowCount(); i++) {
             String studentId = model.getValueAt(i, 0).toString(); // Assuming the ID is in column 0
 
@@ -3895,30 +4199,48 @@ public void generateStudentListDocument(JTable table) {
             try (Connection conn = DatabaseConnector.getConnection();
                  PreparedStatement pstmt = conn.prepareStatement(query)) {
 
-                pstmt.setInt(1, Integer.parseInt(studentId));  // Convert studentId to integer
+                pstmt.setInt(1, Integer.parseInt(studentId)); // Convert studentId to integer
                 try (ResultSet rs = pstmt.executeQuery()) {
 
                     if (rs.next()) {
                         String firstname = rs.getString("firstname");
                         String lastname = rs.getString("lastname");
-                        String qr_path = rs.getString("qr_code");
+                        String qrPath = rs.getString("qr_code");
 
                         // Ensure the image file path is valid and file exists
-                        File imageFile = new File(qr_path);
+                        File imageFile = new File(qrPath);
                         if (!imageFile.exists()) {
-                            JOptionPane.showMessageDialog(null, "Image file not found: " + qr_path);
+                            JOptionPane.showMessageDialog(null, "Image file not found: " + qrPath);
                             continue; // Skip this entry if the image does not exist
                         }
 
-                        // Add student name and QR image to the document
-                        XWPFParagraph paragraph = document.createParagraph();
+                        // Calculate current row and column in the grid
+                        int row = studentIndex / colsPerPage;
+                        int col = studentIndex % colsPerPage;
+
+                        // Add QR code and name to the current cell
+                        XWPFTableCell cell = tableDoc.getRow(row).getCell(col);
+                        XWPFParagraph paragraph = cell.addParagraph();
                         XWPFRun run = paragraph.createRun();
-                        run.setText("Student Name: " + firstname + " " + lastname);
+
+                        // Add picture to the document
+                        addStudentPictureToRun(document, run, qrPath, 144, 144); // 2x2 inch image
                         run.addBreak();
 
-                        // Add picture to the document with specified dimensions (2x2 inch)
-                        addStudentPictureToRun(document, run, qr_path, 144, 144);  // 2x2 inch image size
-                        run.addBreak(); // Add a line break after the image
+                        // Add student name below the image
+                        run.setText("Student Name: " + firstname + " " + lastname);
+
+                        // Move to the next cell
+                        studentIndex++;
+
+                        // If the grid is full (3x3), start a new table on the next page
+                        if (studentIndex % (rowsPerPage * colsPerPage) == 0) {
+                            XWPFParagraph pageBreak = document.createParagraph();
+                            pageBreak.setPageBreak(true); // Add a page break
+                            tableDoc = document.createTable(rowsPerPage, colsPerPage); // Create a new table
+                            tableDoc.setWidth("100%");
+                            studentIndex = 0; // Reset index for new page
+                        }
                     }
                 }
             }
@@ -3948,6 +4270,9 @@ public void generateStudentListDocument(JTable table) {
         }
     }
 }
+
+
+
 
 private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String qr_path, int width, int height) {
     File imageFile = new File(qr_path);
@@ -3993,6 +4318,8 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog AddAdmin;
+    private javax.swing.JLabel AddAdminbtn;
     private javax.swing.JDialog AddBorrowing;
     private javax.swing.JLabel AddBtn;
     private javax.swing.JDialog AddInventory;
@@ -4000,6 +4327,7 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private javax.swing.JDialog AddStudents;
     private javax.swing.JTable AttendanceTable;
     private javax.swing.JTable BorrowingTable;
+    private javax.swing.JPasswordField ConfirmPAsswordAdmin;
     private javax.swing.JTextField EquiptmentTf;
     private javax.swing.JTable InventoryTable;
     private javax.swing.JPanel ShowAllbtn;
@@ -4023,6 +4351,7 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private javax.swing.JLabel cancelupdateinventory4;
     private javax.swing.JLabel cancelupdateinventory5;
     private javax.swing.JLabel cancelupdateinventory6;
+    private javax.swing.JLabel cancelupdateinventory7;
     private com.CustomCards.CardForm cardForm1;
     private javax.swing.JLabel categoryequipment;
     private javax.swing.JLabel categoryequipment1;
@@ -4032,9 +4361,11 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private javax.swing.JLabel categoryequipment5;
     private javax.swing.JLabel categoryequipment6;
     private javax.swing.JLabel categoryequipment7;
+    private javax.swing.JLabel categoryequipment8;
     private javax.swing.JComboBox<String> categoryequipmentCB;
     private javax.swing.JComboBox<String> categoryequipmentCB1;
     private javax.swing.JComboBox<String> categoryequipmentCB2;
+    private javax.swing.JCheckBox confirmpassword;
     private javax.swing.JLabel dashboard;
     private javax.swing.JPanel dashboardbtn;
     private javax.swing.JPanel dashboardpanel;
@@ -4042,8 +4373,11 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private com.toedter.calendar.JDateChooser dateChooser1;
     private javax.swing.JTextField emailTF;
     private javax.swing.JTextField emailtf;
+    private javax.swing.JTextField emailtfadmin;
     private javax.swing.JLabel equipment;
     private javax.swing.JLabel equipment1;
+    private javax.swing.JLabel equipment10;
+    private javax.swing.JLabel equipment11;
     private javax.swing.JLabel equipment2;
     private javax.swing.JLabel equipment3;
     private javax.swing.JLabel equipment4;
@@ -4061,8 +4395,10 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private javax.swing.JLabel equipmentid2;
     private javax.swing.JLabel equipmentid3;
     private javax.swing.JLabel equipmentid4;
+    private javax.swing.JLabel equipmentid5;
     private javax.swing.JTextField equipmentidTF;
     private javax.swing.JTextField equipmentidTF1;
+    private javax.swing.JTextField firstnameAdmin;
     private javax.swing.JTextField firstnameTF;
     private javax.swing.JTextField firstnametf;
     private javax.swing.JLabel inventory;
@@ -4075,7 +4411,6 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -4099,6 +4434,8 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel20;
+    private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -4112,6 +4449,7 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTextField lastnameTF;
+    private javax.swing.JTextField lastnameadmin;
     private javax.swing.JTextField lastnametf;
     private javax.swing.JPanel left;
     private javax.swing.JPanel left1;
@@ -4120,6 +4458,7 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private javax.swing.JPanel left4;
     private javax.swing.JPanel left5;
     private javax.swing.JPanel left6;
+    private javax.swing.JPanel left7;
     private javax.swing.JLabel logout;
     private javax.swing.JPanel logoutbtn;
     private javax.swing.JSpinner lostItemCountField;
@@ -4128,6 +4467,7 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private javax.swing.JTextField lrntf;
     private javax.swing.JTable notiicationTable;
     private javax.swing.JPanel overlaypanel;
+    private javax.swing.JPasswordField passwordAdmin;
     private javax.swing.JTextField quantityTf;
     private javax.swing.JLabel quantityequipment;
     private javax.swing.JLabel quantityequipment1;
@@ -4135,6 +4475,7 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private javax.swing.JLabel quantityequipment3;
     private javax.swing.JLabel quantityequipment4;
     private javax.swing.JLabel quantityequipment5;
+    private javax.swing.JLabel quantityequipment6;
     private javax.swing.JTextField quantityequipmenttF;
     private javax.swing.JTextField quantityequipmenttF1;
     private javax.swing.JTextField quantityequipmenttF2;
@@ -4146,6 +4487,7 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private javax.swing.JLabel saveupdateinventory4;
     private javax.swing.JLabel saveupdateinventory5;
     private javax.swing.JLabel saveupdateinventory6;
+    private javax.swing.JLabel saveupdateinventory7;
     private javax.swing.JLabel scilab;
     private javax.swing.JTextField searchtf;
     private javax.swing.JTextField searchtf1;
@@ -4155,6 +4497,7 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private javax.swing.JLabel showAll1;
     private javax.swing.JLabel showAll2;
     private javax.swing.JLabel showAll3;
+    private javax.swing.JCheckBox showPasswordCheckbox;
     private javax.swing.JComboBox<String> statusTf;
     private javax.swing.JComboBox<String> statuscb;
     private javax.swing.JTextField studentidTF;
@@ -4169,6 +4512,7 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private javax.swing.JLabel updateinventory4;
     private javax.swing.JLabel updateinventory5;
     private javax.swing.JLabel updateinventory6;
+    private javax.swing.JLabel updateinventory7;
     private javax.swing.JComboBox<String> yearcb;
     private javax.swing.JComboBox<String> yearcb1;
     // End of variables declaration//GEN-END:variables

@@ -50,20 +50,23 @@ public class DAO {
         return totalEquipments;
     }
 
-    public static int getTotalNumberOfBorrowings() {
-        int totalBorrowings = 0;
-        String query = "SELECT COUNT(*) FROM borrowingtable";
+   public static int getTotalNumberOfBorrowings() {
+    int totalBorrowings = 0;
+    String query = "SELECT * FROM borrowingtable WHERE status = 'Borrowed';";
 
-        try (Connection conn = DatabaseConnector.getConnection(); Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
+    try (Connection conn = DatabaseConnector.getConnection();
+         Statement stmt = conn.createStatement();
+         ResultSet rs = stmt.executeQuery(query)) {
 
-            if (rs.next()) {
-                totalBorrowings = rs.getInt(1);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("Error occurred while fetching the total number of borrowings.");
+        while (rs.next()) {
+            totalBorrowings++; // Increment the count for each row found
         }
-
-        return totalBorrowings;
+    } catch (SQLException e) {
+        e.printStackTrace();
+        System.out.println("Error occurred while fetching the total number of borrowings.");
     }
+
+    return totalBorrowings;
+}
+
 }
