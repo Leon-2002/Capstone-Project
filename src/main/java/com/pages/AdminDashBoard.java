@@ -1244,11 +1244,11 @@ if (choice == JOptionPane.YES_OPTION) {
 
         equipment4.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         equipment4.setForeground(new java.awt.Color(255, 255, 255));
-        equipment4.setText("LASTNAME");
+        equipment4.setText("First name");
 
         categoryequipment4.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         categoryequipment4.setForeground(new java.awt.Color(255, 255, 255));
-        categoryequipment4.setText("FIRSTNAME");
+        categoryequipment4.setText("email");
 
         lrntf.setBackground(new java.awt.Color(255, 255, 255));
         lrntf.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
@@ -1335,7 +1335,7 @@ if (choice == JOptionPane.YES_OPTION) {
 
         equipmentid4.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         equipmentid4.setForeground(new java.awt.Color(255, 255, 255));
-        equipmentid4.setText("EMAIL");
+        equipmentid4.setText("Last name");
 
         firstnametf.setBackground(new java.awt.Color(255, 255, 255));
         firstnametf.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
@@ -1374,26 +1374,25 @@ if (choice == JOptionPane.YES_OPTION) {
                 .addGroup(left3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, left3Layout.createSequentialGroup()
                         .addGroup(left3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(left3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lastnametf, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
-                                .addComponent(categoryequipment4)
-                                .addComponent(lrntf)
-                                .addComponent(quantityequipment4)
-                                .addComponent(firstnametf))
-                            .addComponent(equipment4))
-                        .addGap(59, 59, 59)
+                            .addComponent(categoryequipment4)
+                            .addComponent(lrntf, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(quantityequipment4)
+                            .addComponent(equipment4)
+                            .addComponent(emailtf, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(firstnametf, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(56, 56, 56)
                         .addGroup(left3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(equipmentid4)
                             .addComponent(equipment5)
                             .addComponent(categoryequipment5)
-                            .addComponent(emailtf, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(yearcb1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(sectioncb1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(left3Layout.createSequentialGroup()
                                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(50, 50, 50))
+                                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lastnametf, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(53, 53, 53))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, left3Layout.createSequentialGroup()
                         .addComponent(updateinventory3)
                         .addGap(229, 229, 229))))
@@ -1412,7 +1411,7 @@ if (choice == JOptionPane.YES_OPTION) {
                         .addGap(18, 18, 18)
                         .addComponent(categoryequipment4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lastnametf, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(emailtf, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(quantityequipment4)
                         .addGap(18, 18, 18)
@@ -1421,7 +1420,7 @@ if (choice == JOptionPane.YES_OPTION) {
                     .addGroup(left3Layout.createSequentialGroup()
                         .addComponent(equipmentid4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(emailtf, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lastnametf, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(equipment5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1926,13 +1925,11 @@ if (choice == JOptionPane.YES_OPTION) {
         );
 
         left7.setBackground(new java.awt.Color(51, 51, 51));
-        left7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         updateinventory7.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         updateinventory7.setForeground(new java.awt.Color(255, 255, 255));
         updateinventory7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/attendance.png"))); // NOI18N
         updateinventory7.setText("Add Admin");
-        left7.add(updateinventory7, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 39, -1, -1));
 
         lastnameadmin.setBackground(new java.awt.Color(255, 255, 255));
         lastnameadmin.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
@@ -1942,22 +1939,18 @@ if (choice == JOptionPane.YES_OPTION) {
                 lastnameadminActionPerformed(evt);
             }
         });
-        left7.add(lastnameadmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 263, 40));
 
         equipment10.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         equipment10.setForeground(new java.awt.Color(255, 255, 255));
         equipment10.setText("LASTNAME");
-        left7.add(equipment10, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 117, -1, -1));
 
         categoryequipment8.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         categoryequipment8.setForeground(new java.awt.Color(255, 255, 255));
         categoryequipment8.setText("FIRSTNAME");
-        left7.add(categoryequipment8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 111, -1, -1));
 
         quantityequipment6.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         quantityequipment6.setForeground(new java.awt.Color(255, 255, 255));
         quantityequipment6.setText("Confirm Password");
-        left7.add(quantityequipment6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 291, -1, -1));
 
         jPanel20.setBackground(new java.awt.Color(118, 44, 235));
 
@@ -1981,8 +1974,6 @@ if (choice == JOptionPane.YES_OPTION) {
                 .addComponent(cancelupdateinventory7)
                 .addContainerGap())
         );
-
-        left7.add(jPanel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 420, -1, -1));
 
         jPanel21.setBackground(new java.awt.Color(118, 44, 235));
         jPanel21.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2012,17 +2003,13 @@ if (choice == JOptionPane.YES_OPTION) {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        left7.add(jPanel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 420, -1, -1));
-
         equipment11.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         equipment11.setForeground(new java.awt.Color(255, 255, 255));
         equipment11.setText("Password");
-        left7.add(equipment11, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, -1, -1));
 
         equipmentid5.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         equipmentid5.setForeground(new java.awt.Color(255, 255, 255));
         equipmentid5.setText("EMAIL");
-        left7.add(equipmentid5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 197, -1, -1));
 
         firstnameAdmin.setBackground(new java.awt.Color(255, 255, 255));
         firstnameAdmin.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
@@ -2032,7 +2019,6 @@ if (choice == JOptionPane.YES_OPTION) {
                 firstnameAdminActionPerformed(evt);
             }
         });
-        left7.add(firstnameAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 139, 263, 40));
 
         emailtfadmin.setBackground(new java.awt.Color(255, 255, 255));
         emailtfadmin.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
@@ -2043,25 +2029,114 @@ if (choice == JOptionPane.YES_OPTION) {
                 emailtfadminActionPerformed(evt);
             }
         });
-        left7.add(emailtfadmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 225, 266, 40));
-        left7.add(passwordAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 230, 260, 40));
-        left7.add(ConfirmPAsswordAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 260, 40));
 
+        showPasswordCheckbox.setForeground(new java.awt.Color(255, 255, 255));
         showPasswordCheckbox.setText("Show paswword");
         showPasswordCheckbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showPasswordCheckboxActionPerformed(evt);
             }
         });
-        left7.add(showPasswordCheckbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 280, -1, -1));
 
+        confirmpassword.setForeground(new java.awt.Color(255, 255, 255));
         confirmpassword.setText("Show password");
         confirmpassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmpasswordActionPerformed(evt);
             }
         });
-        left7.add(confirmpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, -1));
+
+        javax.swing.GroupLayout left7Layout = new javax.swing.GroupLayout(left7);
+        left7.setLayout(left7Layout);
+        left7Layout.setHorizontalGroup(
+            left7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(left7Layout.createSequentialGroup()
+                .addGroup(left7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(left7Layout.createSequentialGroup()
+                        .addGap(259, 259, 259)
+                        .addComponent(updateinventory7))
+                    .addGroup(left7Layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(categoryequipment8)
+                        .addGap(221, 221, 221)
+                        .addComponent(equipment10))
+                    .addGroup(left7Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(firstnameAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(lastnameadmin, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(left7Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(equipmentid5)
+                        .addGap(262, 262, 262)
+                        .addComponent(equipment11))
+                    .addGroup(left7Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(emailtfadmin, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(passwordAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(left7Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(quantityequipment6)
+                        .addGap(172, 172, 172)
+                        .addComponent(showPasswordCheckbox))
+                    .addGroup(left7Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(ConfirmPAsswordAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(left7Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(confirmpassword))
+                    .addGroup(left7Layout.createSequentialGroup()
+                        .addGap(330, 330, 330)
+                        .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17)
+                        .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(47, Short.MAX_VALUE))
+        );
+        left7Layout.setVerticalGroup(
+            left7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(left7Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(updateinventory7)
+                .addGap(40, 40, 40)
+                .addGroup(left7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(categoryequipment8)
+                    .addGroup(left7Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(equipment10)))
+                .addGroup(left7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(firstnameAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(left7Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(lastnameadmin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(17, 17, 17)
+                .addGroup(left7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(equipmentid5)
+                    .addGroup(left7Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(equipment11)))
+                .addGap(3, 3, 3)
+                .addGroup(left7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(emailtfadmin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(left7Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(passwordAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(10, 10, 10)
+                .addGroup(left7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(left7Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(quantityequipment6))
+                    .addComponent(showPasswordCheckbox))
+                .addGap(7, 7, 7)
+                .addComponent(ConfirmPAsswordAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(confirmpassword)
+                .addGap(27, 27, 27)
+                .addGroup(left7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(65, Short.MAX_VALUE))
+        );
 
         AddAdmin.getContentPane().add(left7, java.awt.BorderLayout.CENTER);
 

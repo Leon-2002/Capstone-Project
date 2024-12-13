@@ -36,7 +36,7 @@ String borrowingStr = Integer.toString(totalBorrowings);
         
         
 
-        cards1.setData(new Model_Cards(new ImageIcon(getClass().getResource("/images/attendance.png")), "Attendance", attendanceStr, "Total Attendance"));
+        cards1.setData(new Model_Cards(new ImageIcon(getClass().getResource("/images/attendance.png")), "Attendance", attendanceStr, "Total Attendance for today"));
         cards2.setData(new Model_Cards(new ImageIcon(getClass().getResource("/images/inventory.png")), "Inventory", inventoryStr, "Total Inventory"));
         cards3.setData(new Model_Cards(new ImageIcon(getClass().getResource("/images/borrowing.png")), "Borrowing", borrowingStr, "Total Borrowing"));
 

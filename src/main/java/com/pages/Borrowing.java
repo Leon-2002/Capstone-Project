@@ -216,6 +216,7 @@ public class Borrowing extends javax.swing.JFrame {
     private void borrowBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrowBtnActionPerformed
         // TODO add your handling code here:
         saveBorrowingData();
+        clearBorrowingTable();
     }//GEN-LAST:event_borrowBtnActionPerformed
 
     private void BorrowingtableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BorrowingtableMouseClicked
@@ -230,7 +231,7 @@ public class Borrowing extends javax.swing.JFrame {
         int spinner1 = Integer.parseInt(spinner);
         QuantityTf.setValue(spinner1);
         
-       
+     
         
         
         
@@ -349,6 +350,11 @@ public class Borrowing extends javax.swing.JFrame {
     
         
     }
+     
+     public void clearBorrowingTable() {
+    DefaultTableModel model = (DefaultTableModel) Borrowingtable.getModel();
+    model.setRowCount(0);
+}
      
      
      

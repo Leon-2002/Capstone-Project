@@ -18,7 +18,7 @@ public class DAO {
 
     public static int getTotalNumberOfStudents() {
         int totalStudents = 0;
-        String query = "SELECT COUNT(*) FROM attendancetbl";
+        String query = "SELECT COUNT(*) FROM attendancetbl WHERE attendance_date = CURRENT_DATE";
 
         try (Connection conn = DatabaseConnector.getConnection(); Statement stmt = conn.createStatement(); ResultSet rs = stmt.executeQuery(query)) {
 

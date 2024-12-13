@@ -102,8 +102,6 @@ public class RegisterStudent extends javax.swing.JFrame {
         yearcb = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
 
@@ -257,14 +255,6 @@ public class RegisterStudent extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ELIAS SCIENCE LABORATORY SYSTEM");
 
-        jLabel3.setFont(new java.awt.Font("Poppins", 1, 15)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Admin");
-
-        jLabel4.setFont(new java.awt.Font("Poppins", 1, 15)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("About");
-
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
@@ -291,10 +281,6 @@ public class RegisterStudent extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel4)
-                        .addGap(48, 48, 48)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1031, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(47, Short.MAX_VALUE))
@@ -306,8 +292,6 @@ public class RegisterStudent extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel4)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
@@ -347,7 +331,7 @@ public class RegisterStudent extends javax.swing.JFrame {
         // TODO add your handling code here:
 //         checkInternetConnection();
     String fname = firstnametf.getText().toLowerCase();
-    String uname = lastnametf.getText().toLowerCase();
+    String lname = lastnametf.getText().toLowerCase();
     String email = emailtf.getText();
     String status = "Active";
     String lrn = lrntf.getText();
@@ -356,7 +340,7 @@ public class RegisterStudent extends javax.swing.JFrame {
     String qr_code = "ewewewew";
     
     // Condition when the user clicks submit without providing an input
-    if (fname.equals("") || uname.equals("") || email.equals("")) {
+    if (fname.equals("") || lname.equals("") || email.equals("")) {
         JOptionPane.showMessageDialog(null, "Please provide an input.");
         return;
     }
@@ -385,12 +369,12 @@ public class RegisterStudent extends javax.swing.JFrame {
         return;
     }
 
-    if (!uname.matches("^[a-zA-Z\\s]+$")) {
+    if (!lname.matches("^[a-zA-Z\\s]+$")) {
         JOptionPane.showMessageDialog(null, "Lastname must not contain numbers or special characters.");
         return;
     }
 
-    boolean isExist = UserHandler.registerUser1(lrn, uname, fname, email, grade_level, section, status);
+    boolean isExist = UserHandler.registerUser1(lrn, lname, fname, email, grade_level, section, status);
     dispose();
     Frontpage frame = new Frontpage();
     frame.setVisible(true);
@@ -399,7 +383,7 @@ public class RegisterStudent extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Data already exists.");
     } else {
         JOptionPane.showMessageDialog(null, "Account created successfully.");
-        addNotification("New user registered: " + fname + " " + uname );
+        addNotification("New user registered: " + fname + " " + lname );
     }
         
         
@@ -535,8 +519,6 @@ public class RegisterStudent extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
