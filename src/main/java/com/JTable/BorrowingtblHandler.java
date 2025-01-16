@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.TableColumn;
 
 /**
@@ -94,4 +95,60 @@ public static void updateBorrowingTableNULL(int id, String status, int lost_quan
         System.out.println("Error occurred while updating table.");
     }
 }
+
+public static void searchBorrowingTable(JTable borrowingTable, JTextField searchtf) {
+    String searchQuery = searchtf.getText().toLowerCase(); // Convert search query to lowercase
+
+    // SQL query to fetch borrowing data based on search input
+    String query = "SELECT bt.id, st.lastname, st.firstname, it.equipment_name, bt.quantity_borrowed, bt.borrow_date, bt.return_date, bt.status "
+                 + "FROM BorrowingTable bt "
+                 + "JOIN StudentsTbl st ON bt.student_id = st.id "
+                 + "JOIN InventoryTable it ON bt.equipment_id = it.id "
+                 + "WHERE LOWER(CONCAT(st.lastname, ' ', st.firstname)) LIKE ? "
+                 + "OR LOWER(it.equipment_name) LIKE ? "
+                 + "OR LOWER(bt.status) LIKE ? "
+                 + "ORDER BY bt.status ASC, st.lastname ASC";
+
+    try (Connection conn = DatabaseConnector.getConnection(); PreparedStatement pstmt = conn.prepareStatement(query)) {
+
+        pstmt.setString(1, "%" + searchQuery + "%");
+        pstmt.setString(2, "%" + searchQuery + "%");
+        pstmt.setString(3, "%" + searchQuery + "%");
+
+        try (ResultSet rs = pstmt.executeQuery()) {
+
+            DefaultTableModel tblModel = (DefaultTableModel) borrowingTable.getModel();
+
+            // Clear existing rows in the table model
+            tblModel.setRowCount(0);
+
+            // Iterate over the result set and add rows to the table model
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String studentName = rs.getString("lastname") + " " + rs.getString("firstname");
+                String equipmentName = rs.getString("equipment_name");
+                String quantityBorrowed = rs.getString("quantity_borrowed");
+                Timestamp borrowDate = rs.getTimestamp("borrow_date");
+                Timestamp returnDate = rs.getTimestamp("return_date");
+                String status = rs.getString("status");
+
+                // Create an array of data to add to the table
+                Object[] tbData = {id, studentName, equipmentName, quantityBorrowed, borrowDate, returnDate, status, ""}; // Add an empty string for the Action column
+
+                // Add the data to the table model
+                tblModel.addRow(tbData);
+            }
+
+            // Print the number of rows fetched for debugging
+            System.out.println("Rows fetched: " + tblModel.getRowCount());
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
 }

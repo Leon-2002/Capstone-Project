@@ -23,7 +23,7 @@ import javax.swing.table.TableModel;
  * @author loena
  */
 public class Borrowing extends javax.swing.JFrame {
-        private int studentId;
+        private long studentId;
     /**
      * Creates new form Inventory
      */
@@ -32,11 +32,11 @@ public class Borrowing extends javax.swing.JFrame {
         setLocationRelativeTo(null);
 //         setUndecorated(true);
             setVisible(true);
-         this.studentId = Integer.parseInt(id); // convert id to int
+          this.studentId = Long.parseLong(id);
        
         
 //     jLabel2.setText(email);
-//     jLabel5.setText(id);
+//     jLabel3.setText(id);
 
    
      
@@ -53,7 +53,6 @@ public class Borrowing extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         EquipmentID = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         AddBtn = new javax.swing.JButton();
@@ -65,23 +64,18 @@ public class Borrowing extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         ResetBtn = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(51, 0, 153));
         jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Borrowing ");
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Borrowing Page ");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(50, 20, 200, 34);
-
-        jLabel3.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Equipment name");
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(50, 70, 145, 33);
 
         EquipmentID.setBackground(new java.awt.Color(255, 255, 255));
         EquipmentID.addActionListener(new java.awt.event.ActionListener() {
@@ -90,13 +84,13 @@ public class Borrowing extends javax.swing.JFrame {
             }
         });
         jPanel1.add(EquipmentID);
-        EquipmentID.setBounds(50, 110, 132, 30);
+        EquipmentID.setBounds(40, 190, 132, 30);
 
         jLabel4.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Quantity");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(50, 160, 145, 33);
+        jLabel4.setBounds(40, 240, 145, 33);
 
         AddBtn.setBackground(new java.awt.Color(102, 0, 255));
         AddBtn.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
@@ -108,7 +102,7 @@ public class Borrowing extends javax.swing.JFrame {
             }
         });
         jPanel1.add(AddBtn);
-        AddBtn.setBounds(50, 250, 130, 40);
+        AddBtn.setBounds(40, 360, 130, 40);
 
         borrowBtn.setBackground(new java.awt.Color(102, 0, 255));
         borrowBtn.setFont(new java.awt.Font("Poppins", 1, 14)); // NOI18N
@@ -149,9 +143,9 @@ public class Borrowing extends javax.swing.JFrame {
         jScrollPane1.setViewportView(Borrowingtable);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(210, 60, 740, 480);
+        jScrollPane1.setBounds(340, 70, 610, 480);
         jPanel1.add(QuantityTf);
-        QuantityTf.setBounds(50, 200, 130, 30);
+        QuantityTf.setBounds(40, 280, 130, 30);
         QuantityTf.setValue(1);
 
         backbtn.setBackground(new java.awt.Color(102, 0, 255));
@@ -183,7 +177,13 @@ public class Borrowing extends javax.swing.JFrame {
             }
         });
         jPanel1.add(ResetBtn);
-        ResetBtn.setBounds(50, 300, 130, 40);
+        ResetBtn.setBounds(180, 360, 130, 40);
+
+        jLabel6.setFont(new java.awt.Font("Poppins", 1, 20)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("SCAN YOUR QR HERE ");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(40, 150, 240, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -276,7 +276,7 @@ public class Borrowing extends javax.swing.JFrame {
                     }
                 } else {
                     // Show an error message if requested quantity exceeds available quantity
-                    JOptionPane.showMessageDialog(null, "Request quantity exceeds available quantity", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Request quantity exceeds available quantity.  \n Available  quantity: " +availableQuantity + "", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             } else {
                 // Item not found in the inventory
@@ -399,7 +399,7 @@ public class Borrowing extends javax.swing.JFrame {
             int quantity = (int) model.getValueAt(i, 3);
 
             // Set parameters for inserting borrowing data
-            pstmt.setInt(1, studentId); // Use the class-level studentId
+            pstmt.setLong(1, studentId); // Use the class-level studentId
             pstmt.setInt(2, equipmentId);
             pstmt.setDate(3, new java.sql.Date(System.currentTimeMillis())); // current date only
             pstmt.setInt(4, quantity);
@@ -413,7 +413,7 @@ public class Borrowing extends javax.swing.JFrame {
         // Now, notify the student and equipment borrowed
         // Fetch student's full name
         try (PreparedStatement studentStmt = conn.prepareStatement(studentNameQuery)) {
-            studentStmt.setInt(1, studentId);
+            studentStmt.setLong(1, studentId);
             try (ResultSet studentRs = studentStmt.executeQuery()) {
                 if (studentRs.next()) {
                     String studentName = studentRs.getString("firstname") + " " + studentRs.getString("lastname");
@@ -456,9 +456,9 @@ public class Borrowing extends javax.swing.JFrame {
     private javax.swing.JButton borrowBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

@@ -70,27 +70,28 @@ public class BorrowingLogin extends javax.swing.JFrame {
 }
 
     
-   private void checkQR(String lrn) {
+  private void checkQR(String lrn) {
     try (Connection conn = DatabaseConnector.getConnection();
-         PreparedStatement pstmt = conn.prepareStatement("SELECT COUNT(*) FROM StudentsTbl WHERE lrn = ?")) {
+         PreparedStatement pstmt = conn.prepareStatement("SELECT id, email FROM StudentsTbl WHERE lrn = ?")) {
         
         pstmt.setString(1, lrn); 
         ResultSet rs = pstmt.executeQuery();
         
-        if (rs.next() && rs.getInt(1) > 0) {
+        if (rs.next()) {
             // LRN found in the database
             System.out.println("LRN found: " + lrn);
 
-            // Close the current login form and direct to the dashboard
+            // Fetch the 'id' and 'email' from the result set
+            int id = rs.getInt("id"); // Retrieve the 'id' of the student
+            String email = rs.getString("email"); // Retrieve the 'email' of the student
+            
+            // Close the current login form and open the Borrowing page
             this.dispose();  // Assuming this refers to the current login form
-
-            String id = UserCredentials.GetId(lrn);
-             String email = UserCredentials.GetEmail(lrn);
-              Borrowing page = new Borrowing(email,id);
-              page.setVisible(true);
-              page.pack();
-                      
-
+            
+            // Pass email and id to the Borrowing page
+            Borrowing page = new Borrowing(email, String.valueOf(id)); 
+            page.setVisible(true);
+            page.pack();
         } else {
             // LRN not found in the database
             System.out.println("LRN not found: " + lrn);
@@ -101,6 +102,7 @@ public class BorrowingLogin extends javax.swing.JFrame {
         e.printStackTrace();
     }
 }
+
 
     
   
@@ -173,7 +175,7 @@ public class BorrowingLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(19, 4, 46));
+        jPanel2.setBackground(new java.awt.Color(16, 3, 40));
 
         jPanel1.setBackground(new java.awt.Color(51, 0, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

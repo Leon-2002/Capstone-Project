@@ -276,7 +276,7 @@ if (choice == JOptionPane.YES_OPTION) {
         };
         
         lostItemCountField.setVisible(false);
-        lostItemCountLabel.setVisible(false);
+        DamagedLabel.setVisible(false);
         
         
          TableActionEvent borrowingevent = new TableActionEvent() {
@@ -439,6 +439,28 @@ if (choice == JOptionPane.YES_OPTION) {
                 StudentstblHandler.searchStudentsTable(StudentsTable, studentssearchtf);
             }
         });
+        
+        
+        searchtf1.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                updateTable();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                updateTable();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                updateTable();
+            }
+
+            private void updateTable() {
+                BorrowingtblHandler.searchBorrowingTable(BorrowingTable, searchtf1);
+            }
+        });
 
         // Set the visibility of the panels
         dashboardpanel.setVisible(true);
@@ -552,9 +574,10 @@ if (choice == JOptionPane.YES_OPTION) {
         equipment8 = new javax.swing.JLabel();
         EquiptmentTf = new javax.swing.JTextField();
         lostItemCountField = new javax.swing.JSpinner();
-        lostItemCountLabel = new javax.swing.JLabel();
+        DamagedLabel = new javax.swing.JLabel();
         quantityTf = new javax.swing.JTextField();
         quantitylbl = new javax.swing.JLabel();
+        lostItemCountLabel = new javax.swing.JLabel();
         AddInventory_multiple = new javax.swing.JDialog();
         left6 = new com.CustomPanel.menuPanel();
         updateinventory6 = new javax.swing.JLabel();
@@ -1597,16 +1620,21 @@ if (choice == JOptionPane.YES_OPTION) {
             .addComponent(left4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        UpdateBorrow.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         left5.setBackground(new java.awt.Color(51, 51, 51));
+        left5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         updateinventory5.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         updateinventory5.setForeground(new java.awt.Color(255, 255, 255));
         updateinventory5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/inventory.png"))); // NOI18N
         updateinventory5.setText("UPDATE BORROW");
+        left5.add(updateinventory5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, 338, -1));
 
         equipmentid3.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         equipmentid3.setForeground(new java.awt.Color(255, 255, 255));
         equipmentid3.setText("EQUIPMENT ID");
+        left5.add(equipmentid3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 111, -1, -1));
 
         equipmentidTF1.setEditable(false);
         equipmentidTF1.setBackground(new java.awt.Color(255, 255, 255));
@@ -1617,6 +1645,7 @@ if (choice == JOptionPane.YES_OPTION) {
                 equipmentidTF1ActionPerformed(evt);
             }
         });
+        left5.add(equipmentidTF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 139, 320, 40));
 
         equipmentTF3.setBackground(new java.awt.Color(255, 255, 255));
         equipmentTF3.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
@@ -1626,19 +1655,23 @@ if (choice == JOptionPane.YES_OPTION) {
                 equipmentTF3ActionPerformed(evt);
             }
         });
+        left5.add(equipmentTF3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 231, 320, 40));
+        equipmentTF3.setEditable(false);
 
         equipment7.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         equipment7.setForeground(new java.awt.Color(255, 255, 255));
         equipment7.setText("Borrower");
+        left5.add(equipment7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 203, -1, -1));
 
         categoryequipment7.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         categoryequipment7.setForeground(new java.awt.Color(255, 255, 255));
         categoryequipment7.setText("Status");
+        left5.add(categoryequipment7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 393, -1, -1));
 
         statusTf.setBackground(new java.awt.Color(255, 255, 255));
         statusTf.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        statusTf.setForeground(new java.awt.Color(204, 204, 204));
-        statusTf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Borrowed", "Completed", "Lost" }));
+        statusTf.setForeground(new java.awt.Color(0, 0, 0));
+        statusTf.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Borrowed", "Completed", "Lost", "Damaged", " " }));
         statusTf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 statusTfActionPerformed(evt);
@@ -1649,6 +1682,7 @@ if (choice == JOptionPane.YES_OPTION) {
                 statusTfPropertyChange(evt);
             }
         });
+        left5.add(statusTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 421, 120, 40));
 
         jPanel16.setBackground(new java.awt.Color(118, 44, 235));
 
@@ -1671,6 +1705,8 @@ if (choice == JOptionPane.YES_OPTION) {
                 .addComponent(cancelupdateinventory5)
                 .addContainerGap())
         );
+
+        left5.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 563, 120, -1));
 
         jPanel17.setBackground(new java.awt.Color(118, 44, 235));
         jPanel17.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1699,9 +1735,12 @@ if (choice == JOptionPane.YES_OPTION) {
                 .addContainerGap())
         );
 
+        left5.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(263, 563, -1, -1));
+
         equipment8.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         equipment8.setForeground(new java.awt.Color(255, 255, 255));
         equipment8.setText("Equipment");
+        left5.add(equipment8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 289, -1, -1));
 
         EquiptmentTf.setBackground(new java.awt.Color(255, 255, 255));
         EquiptmentTf.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
@@ -1711,16 +1750,20 @@ if (choice == JOptionPane.YES_OPTION) {
                 EquiptmentTfActionPerformed(evt);
             }
         });
+        left5.add(EquiptmentTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 329, 340, 40));
+        EquiptmentTf.setEditable(false);
 
         lostItemCountField.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 lostItemCountFieldPropertyChange(evt);
             }
         });
+        left5.add(lostItemCountField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 510, 60, 30));
 
-        lostItemCountLabel.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        lostItemCountLabel.setForeground(new java.awt.Color(255, 255, 255));
-        lostItemCountLabel.setText("Number of Lost Items:");
+        DamagedLabel.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        DamagedLabel.setForeground(new java.awt.Color(255, 255, 255));
+        DamagedLabel.setText("Number of Damage Items:");
+        left5.add(DamagedLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 480, -1, -1));
 
         quantityTf.setBackground(new java.awt.Color(255, 255, 255));
         quantityTf.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
@@ -1730,97 +1773,20 @@ if (choice == JOptionPane.YES_OPTION) {
                 quantityTfActionPerformed(evt);
             }
         });
+        left5.add(quantityTf, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 420, 168, 40));
+        quantityTf.setEditable(false);
 
         quantitylbl.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         quantitylbl.setForeground(new java.awt.Color(255, 255, 255));
         quantitylbl.setText("Quantity");
+        left5.add(quantitylbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 393, -1, -1));
 
-        javax.swing.GroupLayout left5Layout = new javax.swing.GroupLayout(left5);
-        left5.setLayout(left5Layout);
-        left5Layout.setHorizontalGroup(
-            left5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(left5Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addGroup(left5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(left5Layout.createSequentialGroup()
-                        .addGroup(left5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lostItemCountLabel)
-                            .addComponent(equipment7)
-                            .addComponent(equipment8)
-                            .addComponent(lostItemCountField, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(equipmentTF3, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(left5Layout.createSequentialGroup()
-                                .addGroup(left5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(statusTf, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(categoryequipment7))
-                                .addGap(50, 50, 50)
-                                .addGroup(left5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(quantitylbl)
-                                    .addComponent(quantityTf, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, left5Layout.createSequentialGroup()
-                        .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(68, 68, 68))
-                    .addGroup(left5Layout.createSequentialGroup()
-                        .addGroup(left5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(updateinventory5, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(equipmentid3)
-                            .addComponent(equipmentidTF1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(EquiptmentTf, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(32, Short.MAX_VALUE))))
-        );
-        left5Layout.setVerticalGroup(
-            left5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(left5Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(updateinventory5)
-                .addGap(39, 39, 39)
-                .addComponent(equipmentid3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(equipmentidTF1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addComponent(equipment7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(equipmentTF3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(equipment8)
-                .addGap(18, 18, 18)
-                .addComponent(EquiptmentTf, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
-                .addGroup(left5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(categoryequipment7)
-                    .addComponent(quantitylbl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(left5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(statusTf, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(quantityTf, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(lostItemCountLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lostItemCountField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addGroup(left5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(42, 42, 42))
-        );
+        lostItemCountLabel.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        lostItemCountLabel.setForeground(new java.awt.Color(255, 255, 255));
+        lostItemCountLabel.setText("Number of Lost Items:");
+        left5.add(lostItemCountLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 480, -1, -1));
 
-        equipmentTF3.setEditable(false);
-        EquiptmentTf.setEditable(false);
-        quantityTf.setEditable(false);
-
-        javax.swing.GroupLayout UpdateBorrowLayout = new javax.swing.GroupLayout(UpdateBorrow.getContentPane());
-        UpdateBorrow.getContentPane().setLayout(UpdateBorrowLayout);
-        UpdateBorrowLayout.setHorizontalGroup(
-            UpdateBorrowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(left5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        UpdateBorrowLayout.setVerticalGroup(
-            UpdateBorrowLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(left5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        UpdateBorrow.getContentPane().add(left5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 654));
 
         left6.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -3648,12 +3614,15 @@ AddInventory.setVisible(false);
         JOptionPane.showMessageDialog(null, "Lastname must not contain numbers or special characters.");
         return;
     }
-
+        if (!isLrnUnique(lrn)) {
+    JOptionPane.showMessageDialog(null, "LRN already exists.");
+    return; // Stop the registration process
+}
     boolean isExist = UserHandler.registerUser12(lrn, uname, fname, email, grade_level, section, status);
     AddStudents.setVisible(false);
 //    Frontpage frame = new Frontpage();
 //    frame.setVisible(true);
-    
+
     if (isExist) {
         JOptionPane.showMessageDialog(null, "Data already exists.");
          AddStudents.setVisible(false); 
@@ -3665,7 +3634,22 @@ AddInventory.setVisible(false);
         
         
     }//GEN-LAST:event_jPanel13MouseClicked
-
+    
+    public static boolean isLrnUnique(String lrn) {
+    String query = "SELECT COUNT(*) FROM studentstbl WHERE lrn = ?";
+    try (Connection conn = DatabaseConnector.getConnection();
+         PreparedStatement pstmt = conn.prepareStatement(query)) {
+        pstmt.setString(1, lrn);
+        try (ResultSet rs = pstmt.executeQuery()) {
+            if (rs.next()) {
+                return rs.getInt(1) == 0; // Returns true if no rows exist with the given LRN
+            }
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return false; // Default to false if any error occurs
+}
     private void firstnametfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstnametfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_firstnametfActionPerformed
@@ -3676,35 +3660,39 @@ AddInventory.setVisible(false);
 
     private void sectioncb1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sectioncb1ActionPerformed
         // TODO add your handling code here:
-          if (yearcb1.getSelectedItem().equals("Default")) {
-            sectioncb1.removeAllItems();
-            sectioncb1.setSelectedItem("Select year level first");
-            sectioncb1.addItem("Select year level first");
-        } else if (yearcb1.getSelectedItem().equals("Grade 7")) {
-            sectioncb1.removeAllItems();
-            sectioncb1.setSelectedItem(null);
-            sectioncb1.addItem("7a");
-            sectioncb1.addItem("7b");
-            sectioncb1.addItem("7c");
-        } else if (yearcb1.getSelectedItem().equals("Grade 8")) {
-            sectioncb1.removeAllItems();
-            sectioncb1.setSelectedItem(null);
-            sectioncb1.addItem("8a");
-            sectioncb1.addItem("8b");
-            sectioncb1.addItem("8c");
-        } else if (yearcb1.getSelectedItem().equals("Grade 9")) {
-            sectioncb1.removeAllItems();
-            sectioncb1.setSelectedItem(null);
-            sectioncb1.addItem("9a");
-            sectioncb1.addItem("9b");
-            sectioncb1.addItem("9c");
-        } else if (yearcb1.getSelectedItem().equals("Grade 10")) {
-            sectioncb1.removeAllItems();
-            sectioncb1.setSelectedItem(null);
-            sectioncb1.addItem("10a");
-            sectioncb1.addItem("10b");
-            sectioncb1.addItem("10c");
-        }
+       yearcb1.addActionListener(e -> {
+    String selectedYear = (String) yearcb1.getSelectedItem();
+    sectioncb1.removeAllItems(); // Clear the section combo box first
+
+    if ("Default".equals(selectedYear)) {
+        sectioncb1.addItem("Select year level first");
+        sectioncb1.setSelectedItem("Select year level first");
+    } else if ("Grade 7".equals(selectedYear)) {
+        sectioncb1.addItem("El Nido");
+        sectioncb1.addItem("Cebu");
+        sectioncb1.addItem("Siargao");
+        sectioncb1.addItem("Sagada");
+        sectioncb1.addItem("Aurora");
+    } else if ("Grade 8".equals(selectedYear)) {
+        sectioncb1.addItem("Panagbenga");
+        sectioncb1.addItem("Moriones");
+        sectioncb1.addItem("Pahiyas");
+        sectioncb1.addItem("Pintados");
+        sectioncb1.addItem("Magayon");
+    } else if ("Grade 9".equals(selectedYear)) {
+        sectioncb1.addItem("Leo");
+        sectioncb1.addItem("Sagittarius");
+        sectioncb1.addItem("Libra");
+        sectioncb1.addItem("Aries");
+        sectioncb1.addItem("Gemini");
+    } else if ("Grade 10".equals(selectedYear)) {
+        sectioncb1.addItem("Confucius");
+        sectioncb1.addItem("Aurelius");
+        sectioncb1.addItem("Socrates");
+        sectioncb1.addItem("Voltaire");
+        sectioncb1.addItem("Aristotle");
+    } 
+});
     }//GEN-LAST:event_sectioncb1ActionPerformed
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
@@ -3851,9 +3839,19 @@ AddInventory.setVisible(false);
     if (selectedItem.equals("Lost")) {
         lostItemCountField.setVisible(true);
         lostItemCountLabel.setVisible(true);
-    } else {
+        DamagedLabel.setVisible(false);
+        
+    }else if(selectedItem.equals("Damaged")){
+       
+        lostItemCountField.setVisible(true);
+        lostItemCountLabel.setVisible(false);
+        DamagedLabel.setVisible(true);
+    }
+    else {
         lostItemCountField.setVisible(false);
         lostItemCountLabel.setVisible(false);
+        DamagedLabel.setVisible(false);
+       
     
 }
         
@@ -3877,7 +3875,13 @@ AddInventory.setVisible(false);
              BorrowingtblHandler.populateBorrowingTable(BorrowingTable);
              InventorytblHandler.InventoryShowTable(InventoryTable);
             UpdateBorrow.setVisible(false); 
-        }
+        }  
+          else if (status == "Damaged") {
+            BorrowingtblHandler.updateBorrowingTableNULL(id, status, lostQuantity);
+             BorrowingtblHandler.populateBorrowingTable(BorrowingTable);
+             InventorytblHandler.InventoryShowTable(InventoryTable);
+            UpdateBorrow.setVisible(false); 
+        }  
         else {
             BorrowingtblHandler.updateBorrowingTable(id, status);
              BorrowingtblHandler.populateBorrowingTable(BorrowingTable);
@@ -3901,15 +3905,19 @@ AddInventory.setVisible(false);
         // Get the selected item from the JComboBox
     String selectedItem = (String) statusTf.getSelectedItem();
     
-    // Check if the selected item is "Lost"
-    if (selectedItem.equals("Lost")) {
+        if ("Lost".equals(selectedItem)) {
+        
         lostItemCountField.setVisible(true);
-        lostItemCountLabel.setVisible(true);
-    } else {
+        DamagedLabel.setVisible(true);
+       
+    }else {
+        // Hide all specific fields if neither "Lost" nor "Damaged" is selected
+        
         lostItemCountField.setVisible(false);
-        lostItemCountLabel.setVisible(false);
-    
-}
+        DamagedLabel.setVisible(false);
+        
+    }
+
     }//GEN-LAST:event_statusTfPropertyChange
 
     private void lostItemCountFieldPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_lostItemCountFieldPropertyChange
@@ -4403,6 +4411,7 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private javax.swing.JTable AttendanceTable;
     private javax.swing.JTable BorrowingTable;
     private javax.swing.JPasswordField ConfirmPAsswordAdmin;
+    private javax.swing.JLabel DamagedLabel;
     private javax.swing.JTextField EquiptmentTf;
     private javax.swing.JTable InventoryTable;
     private javax.swing.JPanel ShowAllbtn;

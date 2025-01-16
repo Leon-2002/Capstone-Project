@@ -7,6 +7,7 @@ package com.pages;
 
 import java.util.regex.*;
 import com.DataHandler.UserHandler;
+import com.DatabaseConnector.DatabaseConnector;
 
 import com.notification.WifiAlert;
 import com.notification.NetworkUtil;
@@ -19,6 +20,10 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -238,7 +243,7 @@ public class RegisterStudent extends javax.swing.JFrame {
         yearcb.setBackground(new java.awt.Color(255, 255, 255));
         yearcb.setFont(new java.awt.Font("Poppins", 0, 13)); // NOI18N
         yearcb.setForeground(new java.awt.Color(0, 0, 0));
-        yearcb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default", "Grade 7", "Grade 8", "Grade 9", "Grade 10" }));
+        yearcb.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default", "Grade 7", "Grade 8", "Grade 9", "Grade 10", "Teacher" }));
         yearcb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 yearcbActionPerformed(evt);
@@ -368,7 +373,10 @@ public class RegisterStudent extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Firstname must not contain numbers or special characters.");
         return;
     }
-
+    if (!isLrnUnique(lrn)) {
+    JOptionPane.showMessageDialog(null, "LRN already exists.");
+    return; // Stop the registration process
+}
     if (!lname.matches("^[a-zA-Z\\s]+$")) {
         JOptionPane.showMessageDialog(null, "Lastname must not contain numbers or special characters.");
         return;
@@ -381,7 +389,10 @@ public class RegisterStudent extends javax.swing.JFrame {
     
     if (isExist) {
         JOptionPane.showMessageDialog(null, "Data already exists.");
-    } else {
+    } 
+   
+    
+    else {
         JOptionPane.showMessageDialog(null, "Account created successfully.");
         addNotification("New user registered: " + fname + " " + lname );
     }
@@ -395,6 +406,24 @@ public class RegisterStudent extends javax.swing.JFrame {
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
+      
+      
+    public static boolean isLrnUnique(String lrn) {
+    String query = "SELECT COUNT(*) FROM studentstbl WHERE lrn = ?";
+    try (Connection conn = DatabaseConnector.getConnection();
+         PreparedStatement pstmt = conn.prepareStatement(query)) {
+        pstmt.setString(1, lrn);
+        try (ResultSet rs = pstmt.executeQuery()) {
+            if (rs.next()) {
+                return rs.getInt(1) == 0; // Returns true if no rows exist with the given LRN
+            }
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return false; // Default to false if any error occurs
+}
+
     private void firstnametfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstnametfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_firstnametfActionPerformed
@@ -459,7 +488,14 @@ public class RegisterStudent extends javax.swing.JFrame {
             sectioncb.addItem("Socrates");    
             sectioncb.addItem("Voltaire");  
             sectioncb.addItem("Aristotle");  
-        }           
+        }          
+        
+        else if(yearcb.getSelectedItem().equals("Teacher")){
+            sectioncb.removeAllItems();
+            sectioncb.setSelectedItem(null);
+            sectioncb.addItem("Teacher");
+             
+        }  
     }//GEN-LAST:event_yearcbActionPerformed
     
     /**
