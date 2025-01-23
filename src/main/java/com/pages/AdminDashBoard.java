@@ -376,6 +376,18 @@ if (choice == JOptionPane.YES_OPTION) {
                 }
             }
         });
+        
+        dateChooser1.addPropertyChangeListener(new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                if ("date".equals(evt.getPropertyName())) {
+                    java.util.Date selectedDate = (java.util.Date) evt.getNewValue(); // Use getNewValue() for PropertyChangeEvent
+                    if (selectedDate != null) {
+                        AttendancetblHandler.updateTableWithDate(BorrowingTable, selectedDate);
+                    }
+                }
+            }
+        });
 
         searchtf.getDocument().addDocumentListener(new DocumentListener() {
             @Override
@@ -1116,9 +1128,12 @@ if (choice == JOptionPane.YES_OPTION) {
         });
 
         equipment3.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        equipment3.setForeground(new java.awt.Color(255, 255, 255));
         equipment3.setText("EQUIPMENT ");
 
+        categoryequipment3.setBackground(new java.awt.Color(255, 255, 255));
         categoryequipment3.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        categoryequipment3.setForeground(new java.awt.Color(255, 255, 255));
         categoryequipment3.setText("CATEGORY");
 
         quantityequipmenttF1.setBackground(new java.awt.Color(255, 255, 255));
@@ -1131,6 +1146,7 @@ if (choice == JOptionPane.YES_OPTION) {
         });
 
         quantityequipment3.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        quantityequipment3.setForeground(new java.awt.Color(255, 255, 255));
         quantityequipment3.setText(" QUANTITY");
 
         categoryequipmentCB1.setBackground(new java.awt.Color(255, 255, 255));
@@ -1946,6 +1962,9 @@ if (choice == JOptionPane.YES_OPTION) {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPanel21MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel21MouseEntered(evt);
+            }
         });
 
         saveupdateinventory7.setFont(new java.awt.Font("Poppins", 1, 16)); // NOI18N
@@ -1996,6 +2015,7 @@ if (choice == JOptionPane.YES_OPTION) {
             }
         });
 
+        showPasswordCheckbox.setBackground(new java.awt.Color(255, 255, 255));
         showPasswordCheckbox.setForeground(new java.awt.Color(255, 255, 255));
         showPasswordCheckbox.setText("Show paswword");
         showPasswordCheckbox.addActionListener(new java.awt.event.ActionListener() {
@@ -2004,6 +2024,7 @@ if (choice == JOptionPane.YES_OPTION) {
             }
         });
 
+        confirmpassword.setBackground(new java.awt.Color(255, 255, 255));
         confirmpassword.setForeground(new java.awt.Color(255, 255, 255));
         confirmpassword.setText("Show password");
         confirmpassword.addActionListener(new java.awt.event.ActionListener() {
@@ -2854,6 +2875,7 @@ if (choice == JOptionPane.YES_OPTION) {
         jLabel3.setForeground(new java.awt.Color(27, 27, 27));
         jLabel3.setText("System Record: ");
 
+        notiicationTable.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
         notiicationTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
@@ -4012,8 +4034,8 @@ AddInventory.setVisible(false);
             }
             if (password.equals(confirmPass)) {
             boolean isExist = UserHandler.registerUserAdmin(uname, fname, email, status, password, qr_code );
-                    dispose();
-                    
+//                    dispose();
+                    AddAdmin.setVisible(false);
             if (isExist) {
                 JOptionPane.showMessageDialog(null, "Data Exists Already");
             } else {
@@ -4058,6 +4080,10 @@ AddInventory.setVisible(false);
                 }
         
     }//GEN-LAST:event_confirmpasswordActionPerformed
+
+    private void jPanel21MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel21MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel21MouseEntered
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
