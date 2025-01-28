@@ -94,12 +94,14 @@ import org.apache.poi.xwpf.usermodel.XWPFTableRow;
  */
 public class AdminDashBoard extends javax.swing.JFrame {
     private static String email1;
-    /**
+    
+    
+    /**s
      * Creates new form StudentDashBoard
      */
     public AdminDashBoard(String email) {
         initComponents();
-        
+      
         lostItemCountField.addChangeListener(new ChangeListener() {
     @Override
     public void stateChanged(ChangeEvent e) {
@@ -109,7 +111,10 @@ public class AdminDashBoard extends javax.swing.JFrame {
         }
     }
 });
+        
         this.email1 = email;
+        
+        AdminEmail.setText(email);
         setBackground(new Color(0, 0, 0, 0));
 
         scilab.setForeground(Color.WHITE);
@@ -618,6 +623,21 @@ if (choice == JOptionPane.YES_OPTION) {
         ConfirmPAsswordAdmin = new javax.swing.JPasswordField();
         showPasswordCheckbox = new javax.swing.JCheckBox();
         confirmpassword = new javax.swing.JCheckBox();
+        ChangePasswordAdmin = new javax.swing.JDialog();
+        left8 = new com.CustomPanel.menuPanel();
+        equipment12 = new javax.swing.JLabel();
+        categoryequipment9 = new javax.swing.JLabel();
+        quantityequipment7 = new javax.swing.JLabel();
+        jPanel22 = new javax.swing.JPanel();
+        cancelupdateinventory8 = new javax.swing.JLabel();
+        jPanel23 = new javax.swing.JPanel();
+        saveupdateinventory8 = new javax.swing.JLabel();
+        emailLbl = new javax.swing.JLabel();
+        oldPaswword = new javax.swing.JPasswordField();
+        NewPassword = new javax.swing.JPasswordField();
+        Confirmpassword = new javax.swing.JPasswordField();
+        equipment13 = new javax.swing.JLabel();
+        AdminEmail = new javax.swing.JTextField();
         jPanel2 = new com.CustomPanel.menuPanel();
         scilab = new javax.swing.JLabel();
         dashboardbtn = new javax.swing.JPanel();
@@ -2128,6 +2148,160 @@ if (choice == JOptionPane.YES_OPTION) {
         );
 
         AddAdmin.getContentPane().add(left7, java.awt.BorderLayout.CENTER);
+
+        left8.setBackground(new java.awt.Color(51, 51, 51));
+
+        equipment12.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        equipment12.setForeground(new java.awt.Color(255, 255, 255));
+        equipment12.setText("Old Password");
+
+        categoryequipment9.setBackground(new java.awt.Color(255, 255, 255));
+        categoryequipment9.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        categoryequipment9.setForeground(new java.awt.Color(255, 255, 255));
+        categoryequipment9.setText("Password");
+
+        quantityequipment7.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        quantityequipment7.setForeground(new java.awt.Color(255, 255, 255));
+        quantityequipment7.setText("Confirm password");
+
+        jPanel22.setBackground(new java.awt.Color(118, 44, 235));
+
+        cancelupdateinventory8.setFont(new java.awt.Font("Poppins", 1, 16)); // NOI18N
+        cancelupdateinventory8.setForeground(new java.awt.Color(255, 255, 255));
+        cancelupdateinventory8.setText("CANCEL");
+
+        javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
+        jPanel22.setLayout(jPanel22Layout);
+        jPanel22Layout.setHorizontalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel22Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(cancelupdateinventory8, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel22Layout.setVerticalGroup(
+            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel22Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cancelupdateinventory8)
+                .addContainerGap())
+        );
+
+        jPanel23.setBackground(new java.awt.Color(118, 44, 235));
+        jPanel23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel23MouseClicked(evt);
+            }
+        });
+
+        saveupdateinventory8.setFont(new java.awt.Font("Poppins", 1, 16)); // NOI18N
+        saveupdateinventory8.setForeground(new java.awt.Color(255, 255, 255));
+        saveupdateinventory8.setText("SAVE");
+
+        javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
+        jPanel23.setLayout(jPanel23Layout);
+        jPanel23Layout.setHorizontalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel23Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(saveupdateinventory8)
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+        jPanel23Layout.setVerticalGroup(
+            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel23Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(saveupdateinventory8)
+                .addContainerGap())
+        );
+
+        emailLbl.setFont(new java.awt.Font("Poppins", 1, 24)); // NOI18N
+        emailLbl.setText("CHANGE PASSWORD");
+
+        NewPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewPasswordActionPerformed(evt);
+            }
+        });
+
+        equipment13.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        equipment13.setForeground(new java.awt.Color(255, 255, 255));
+        equipment13.setText("email");
+
+        AdminEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminEmailActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout left8Layout = new javax.swing.GroupLayout(left8);
+        left8.setLayout(left8Layout);
+        left8Layout.setHorizontalGroup(
+            left8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(left8Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addGroup(left8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(equipment13)
+                    .addGroup(left8Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addGroup(left8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(NewPassword)
+                            .addComponent(equipment12)
+                            .addComponent(categoryequipment9)
+                            .addComponent(quantityequipment7)
+                            .addGroup(left8Layout.createSequentialGroup()
+                                .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(36, 36, 36)
+                                .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Confirmpassword)
+                            .addComponent(oldPaswword)
+                            .addComponent(AdminEmail))))
+                .addContainerGap(43, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, left8Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(emailLbl)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        left8Layout.setVerticalGroup(
+            left8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(left8Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(emailLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(equipment13)
+                .addGap(18, 18, 18)
+                .addComponent(AdminEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(equipment12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(oldPaswword, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(categoryequipment9)
+                .addGap(18, 18, 18)
+                .addComponent(NewPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(quantityequipment7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Confirmpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addGroup(left8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34))
+        );
+
+        AdminEmail.setEditable(false);
+
+        javax.swing.GroupLayout ChangePasswordAdminLayout = new javax.swing.GroupLayout(ChangePasswordAdmin.getContentPane());
+        ChangePasswordAdmin.getContentPane().setLayout(ChangePasswordAdminLayout);
+        ChangePasswordAdminLayout.setHorizontalGroup(
+            ChangePasswordAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(left8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        ChangePasswordAdminLayout.setVerticalGroup(
+            ChangePasswordAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(left8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -4100,7 +4274,133 @@ AddInventory.setVisible(false);
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
         // TODO add your handling code here:
+         ChangePasswordAdmin.pack();
+        ChangePasswordAdmin.setLocationRelativeTo(dashboardpanel);
+        ChangePasswordAdmin.setVisible(true);
     }//GEN-LAST:event_jLabel13MouseClicked
+
+    private void jPanel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel23MouseClicked
+        // TODO add your handling code here:
+        
+
+           
+
+        
+        String adminemail = AdminEmail.getText();
+        String oldPassword = String.valueOf(oldPaswword.getPassword());
+        String newPassword = String.valueOf(NewPassword.getPassword());
+        String confirmPassword = String.valueOf(Confirmpassword.getPassword());
+      
+        // Check for empty inputs
+        if (oldPassword.equals("") || newPassword.equals("") || confirmPassword.equals("")) {
+            JOptionPane.showMessageDialog(null, "Please provide an input.");
+            oldPaswword.setText("");
+            NewPassword.setText("");
+            Confirmpassword.setText("");
+            return;
+        }
+
+        // Check for consecutive periods in the new password or confirm password
+        if (newPassword.contains("..") || confirmPassword.contains("..")) {
+            JOptionPane.showMessageDialog(null, "Input not acceptable.");
+            NewPassword.setText("");
+            Confirmpassword.setText("");
+            return;
+        }
+
+        // Check if new password and confirm password match
+        if (!newPassword.equals(confirmPassword)) {
+            JOptionPane.showMessageDialog(null, "New password and confirm password do not match.");
+            NewPassword.setText("");
+            Confirmpassword.setText("");
+            return;
+        }
+
+        // Check if passwords contain only letters and numbers
+        if (!newPassword.matches("^[a-zA-Z0-9]+$") || !confirmPassword.matches("^[a-zA-Z0-9]+$")) {
+            JOptionPane.showMessageDialog(null, "Password must contain only letters and numbers.");
+            NewPassword.setText("");
+            Confirmpassword.setText("");
+            return;
+        }
+
+        // Check if the old password is correct (assuming `isCorrectOldPassword` method)
+        if (!isCorrectOldPassword(adminemail, oldPassword)) {
+            JOptionPane.showMessageDialog(null, "Old password is incorrect.");
+            oldPaswword.setText("");
+            return;
+        }
+
+        // Password length check (minimum 8 characters)
+        if (newPassword.length() < 8) {
+            JOptionPane.showMessageDialog(null, "Password must be at least 8 characters long.");
+            NewPassword.setText("");
+            Confirmpassword.setText("");
+            return;
+        }
+
+        // If all conditions are met, update the password
+        if (updateAdminPassword(adminemail, newPassword)) {
+            JOptionPane.showMessageDialog(null, "Password updated successfully!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Failed to update password. Please try again.");
+        }
+
+        // Clear all password fields after updating
+        oldPaswword.setText("");
+        NewPassword.setText("");
+        Confirmpassword.setText("");
+
+        
+    }//GEN-LAST:event_jPanel23MouseClicked
+private boolean isCorrectOldPassword(String email, String oldPassword) {
+    String query = "SELECT student_password FROM admintbl WHERE email = ?";
+    try (Connection conn = DatabaseConnector.getConnection();
+         PreparedStatement pstmt = conn.prepareStatement(query)) {
+
+        pstmt.setString(1, email); // Set email parameter
+        try (ResultSet rs = pstmt.executeQuery()) {
+            if (rs.next()) {
+                String storedPassword = rs.getString("student_password");
+                return storedPassword.equals(oldPassword); // Check if passwords match
+            }
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(null, "Error verifying old password: " + e.getMessage());
+    }
+    return false; // Return false if the email doesn't exist or an error occurs
+}
+public boolean updateAdminPassword(String email, String newPassword) {
+    String updateQuery = "UPDATE admintbl SET student_password = ? WHERE email = ?";
+
+    try (Connection conn = DatabaseConnector.getConnection();
+         PreparedStatement pstmt = conn.prepareStatement(updateQuery)) {
+
+        // Set the parameters for the query
+        pstmt.setString(1, newPassword);
+        pstmt.setString(2, email);
+
+        // Execute the update query
+        int rowsUpdated = pstmt.executeUpdate();
+
+        // Return true if the update was successful
+        return rowsUpdated > 0;
+
+    } catch (SQLException e) {
+        e.printStackTrace();
+        JOptionPane.showMessageDialog(null, "Error updating password: " + e.getMessage());
+        return false;
+    }
+}
+
+    private void NewPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NewPasswordActionPerformed
+
+    private void AdminEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AdminEmailActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -4451,12 +4751,16 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private javax.swing.JDialog AddInventory;
     private javax.swing.JDialog AddInventory_multiple;
     private javax.swing.JDialog AddStudents;
+    private javax.swing.JTextField AdminEmail;
     private javax.swing.JTable AttendanceTable;
     private javax.swing.JTable BorrowingTable;
+    private javax.swing.JDialog ChangePasswordAdmin;
     private javax.swing.JPasswordField ConfirmPAsswordAdmin;
+    private javax.swing.JPasswordField Confirmpassword;
     private javax.swing.JLabel DamagedLabel;
     private javax.swing.JTextField EquiptmentTf;
     private javax.swing.JTable InventoryTable;
+    private javax.swing.JPasswordField NewPassword;
     private javax.swing.JPanel ShowAllbtn;
     private javax.swing.JPanel ShowAllbtn1;
     private javax.swing.JPanel ShowAllbtn2;
@@ -4479,6 +4783,7 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private javax.swing.JLabel cancelupdateinventory5;
     private javax.swing.JLabel cancelupdateinventory6;
     private javax.swing.JLabel cancelupdateinventory7;
+    private javax.swing.JLabel cancelupdateinventory8;
     private com.CustomCards.CardForm cardForm1;
     private javax.swing.JLabel categoryequipment;
     private javax.swing.JLabel categoryequipment1;
@@ -4489,6 +4794,7 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private javax.swing.JLabel categoryequipment6;
     private javax.swing.JLabel categoryequipment7;
     private javax.swing.JLabel categoryequipment8;
+    private javax.swing.JLabel categoryequipment9;
     private javax.swing.JComboBox<String> categoryequipmentCB;
     private javax.swing.JComboBox<String> categoryequipmentCB1;
     private javax.swing.JComboBox<String> categoryequipmentCB2;
@@ -4498,6 +4804,7 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private javax.swing.JPanel dashboardpanel;
     private com.toedter.calendar.JDateChooser dateChooser;
     private com.toedter.calendar.JDateChooser dateChooser1;
+    private javax.swing.JLabel emailLbl;
     private javax.swing.JTextField emailTF;
     private javax.swing.JTextField emailtf;
     private javax.swing.JTextField emailtfadmin;
@@ -4505,6 +4812,8 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private javax.swing.JLabel equipment1;
     private javax.swing.JLabel equipment10;
     private javax.swing.JLabel equipment11;
+    private javax.swing.JLabel equipment12;
+    private javax.swing.JLabel equipment13;
     private javax.swing.JLabel equipment2;
     private javax.swing.JLabel equipment3;
     private javax.swing.JLabel equipment4;
@@ -4564,6 +4873,8 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
+    private javax.swing.JPanel jPanel22;
+    private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
@@ -4587,6 +4898,7 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private javax.swing.JPanel left5;
     private javax.swing.JPanel left6;
     private javax.swing.JPanel left7;
+    private javax.swing.JPanel left8;
     private javax.swing.JLabel logout;
     private javax.swing.JPanel logoutbtn;
     private javax.swing.JSpinner lostItemCountField;
@@ -4594,6 +4906,7 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private javax.swing.JTextField lrnTF;
     private javax.swing.JTextField lrntf;
     private javax.swing.JTable notiicationTable;
+    private javax.swing.JPasswordField oldPaswword;
     private javax.swing.JPanel overlaypanel;
     private javax.swing.JPasswordField passwordAdmin;
     private javax.swing.JTextField quantityTf;
@@ -4604,6 +4917,7 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private javax.swing.JLabel quantityequipment4;
     private javax.swing.JLabel quantityequipment5;
     private javax.swing.JLabel quantityequipment6;
+    private javax.swing.JLabel quantityequipment7;
     private javax.swing.JTextField quantityequipmenttF;
     private javax.swing.JTextField quantityequipmenttF1;
     private javax.swing.JTextField quantityequipmenttF2;
@@ -4616,6 +4930,7 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private javax.swing.JLabel saveupdateinventory5;
     private javax.swing.JLabel saveupdateinventory6;
     private javax.swing.JLabel saveupdateinventory7;
+    private javax.swing.JLabel saveupdateinventory8;
     private javax.swing.JLabel scilab;
     private javax.swing.JTextField searchtf;
     private javax.swing.JTextField searchtf1;
