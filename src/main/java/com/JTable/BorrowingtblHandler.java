@@ -7,6 +7,7 @@ package com.JTable;
 import com.DatabaseConnector.DatabaseConnector;
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -151,4 +152,57 @@ public static void searchBorrowingTable(JTable borrowingTable, JTextField search
     }
 }
 
+
+public static void updateTableWithDate(JTable jTable, java.util.Date selectedDate ) {
+    DefaultTableModel model = (DefaultTableModel) jTable.getModel();
+    model.setRowCount(0); // Clear the table before adding new rows
+
+    String query = "SELECT bt.id, st.lastname, st.firstname, it.equipment_name, bt.quantity_borrowed, bt.borrow_date, bt.return_date, bt.status "
+                 + "FROM BorrowingTable bt "
+                 + "JOIN StudentsTbl st ON bt.student_id = st.id "
+                 + "JOIN InventoryTable it ON bt.equipment_id = it.id "
+                 + "WHERE bt.borrow_date = ? "
+                 + "ORDER BY bt.status ASC, st.lastname ASC";
+
+    try (Connection conn = DatabaseConnector.getConnection();
+         PreparedStatement pstmt = conn.prepareStatement(query)) {
+        pstmt.setDate(1, new java.sql.Date(selectedDate.getTime())); // Set the selected date
+
+        try (ResultSet rs = pstmt.executeQuery()) {
+            while (rs.next()) {
+                Object[] row = new Object[8];
+                row[0] = rs.getInt("id"); // Borrowing record ID
+                row[1] = rs.getString("lastname") + " " + rs.getString("firstname"); // Concatenate full name
+                row[2] = rs.getString("equipment_name"); // Equipment name
+                row[3] = rs.getInt("quantity_borrowed"); // Quantity borrowed
+                row[4] = rs.getTimestamp("borrow_date"); // Borrow date
+                row[5] = rs.getTimestamp("return_date"); // Return date
+                row[6] = rs.getString("status"); // Status of the borrowing
+                row[7] = "Action"; // Placeholder for future button or action item
+
+                model.addRow(row); // Add the row to the table model
+            }
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+        System.out.println("Error occurred while updating the borrowing table with date.");
+    }
+
+    // Adjust column widths as necessary
+    TableColumn idColumn = jTable.getColumnModel().getColumn(0);
+    TableColumn quantityColumn = jTable.getColumnModel().getColumn(3);
+
+    System.out.println("BorrowingTable Rows fetched: " + model.getRowCount());
+
+    // Set the preferred width of the "ID" column
+    idColumn.setPreferredWidth(10);
+    
+    // Set the preferred width of the "Quantity" column
+    quantityColumn.setPreferredWidth(30);
 }
+
+
+    
+}
+
+

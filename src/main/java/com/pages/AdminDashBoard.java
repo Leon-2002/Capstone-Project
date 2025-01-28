@@ -378,16 +378,17 @@ if (choice == JOptionPane.YES_OPTION) {
         });
         
         dateChooser1.addPropertyChangeListener(new PropertyChangeListener() {
-            @Override
-            public void propertyChange(PropertyChangeEvent evt) {
-                if ("date".equals(evt.getPropertyName())) {
-                    java.util.Date selectedDate = (java.util.Date) evt.getNewValue(); // Use getNewValue() for PropertyChangeEvent
-                    if (selectedDate != null) {
-                        AttendancetblHandler.updateTableWithDate(BorrowingTable, selectedDate);
-                    }
-                }
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        if ("date".equals(evt.getPropertyName())) {
+            java.util.Date selectedDate = (java.util.Date) evt.getNewValue(); // Use getNewValue() for PropertyChangeEvent
+            if (selectedDate != null) {
+                BorrowingtblHandler.updateTableWithDate(BorrowingTable, selectedDate); // Call the updated method
             }
-        });
+        }
+    }
+});
+
 
         searchtf.getDocument().addDocumentListener(new DocumentListener() {
             @Override
@@ -685,6 +686,7 @@ if (choice == JOptionPane.YES_OPTION) {
         jScrollPane1 = new javax.swing.JScrollPane();
         notiicationTable = new javax.swing.JTable();
         AddAdminbtn = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
         left.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -2907,6 +2909,13 @@ if (choice == JOptionPane.YES_OPTION) {
             }
         });
 
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/settings.png"))); // NOI18N
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout dashboardpanelLayout = new javax.swing.GroupLayout(dashboardpanel);
         dashboardpanel.setLayout(dashboardpanelLayout);
         dashboardpanelLayout.setHorizontalGroup(
@@ -2924,6 +2933,8 @@ if (choice == JOptionPane.YES_OPTION) {
                         .addGroup(dashboardpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(dashboardpanelLayout.createSequentialGroup()
                                 .addComponent(AddAdminbtn)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel13)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(cardForm1, javax.swing.GroupLayout.DEFAULT_SIZE, 833, Short.MAX_VALUE)
                             .addComponent(jScrollPane1))))
@@ -2939,7 +2950,9 @@ if (choice == JOptionPane.YES_OPTION) {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(cardForm1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(AddAdminbtn)
+                .addGroup(dashboardpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(AddAdminbtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(25, 25, 25)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -4085,6 +4098,10 @@ AddInventory.setVisible(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_jPanel21MouseEntered
 
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel13MouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -4524,6 +4541,7 @@ private void addStudentPictureToRun(XWPFDocument document, XWPFRun run, String q
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
